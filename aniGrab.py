@@ -9,7 +9,6 @@ list site
 """
 import requests
 from bs4 import BeautifulSoup
-from tabulate import tabulate
 import sys
 import argparse
 
@@ -43,53 +42,68 @@ class animeLink:
             }
         }
     def animesave(self):
-        cnx=requests.get(self.url["animesave"],params=self.query["animesave"])
-        soup=BeautifulSoup(cnx.text, "html.parser")
-        div=soup.find(class_="allgreen")
-        link=div.find_all("a")
         result=[]
-        for a in link:
-            result.append(a["href"])
+        try:
+            cnx=requests.get(self.url["animesave"],params=self.query["animesave"])
+            soup=BeautifulSoup(cnx.text, "lxml")
+            div=soup.find(class_="allgreen")
+            link=div.find_all("a")
+            for a in link:
+                result.append(a["href"])
+        except:
+            result.append("404 Not Found")
         return result
     
     def meguminime(self):
-        cnx=requests.get(self.url["meguminime"],params=self.query["meguminime"])
-        soup=BeautifulSoup(cnx.text, "html.parser")
-        div=soup.find(class_="pst")
-        link=div.find_all("h2")
         result=[]
-        for h2 in link:
-            result.append(h2.a["href"])
+        try:
+            cnx=requests.get(self.url["meguminime"],params=self.query["meguminime"])
+            soup=BeautifulSoup(cnx.text, "lxml")
+            div=soup.find(class_="pst")
+            link=div.find_all("h2")
+            for h2 in link:
+                result.append(h2.a["href"])
+        except:
+            result.append("404 Not Found")
         return result
     
     def drivenime(self):
-        cnx=requests.get(self.url["drivenime"],params=self.query["drivenime"])
-        soup=BeautifulSoup(cnx.text, "html.parser")
-        div=soup.find(id="content_box")
-        link=div.find_all("h2")
         result=[]
-        for h2 in link:
-            result.append(h2.a["href"])
+        try:
+            cnx=requests.get(self.url["drivenime"],params=self.query["drivenime"])
+            soup=BeautifulSoup(cnx.text, "lxml")
+            div=soup.find(id="content_box")
+            link=div.find_all("h2")
+            for h2 in link:
+                result.append(h2.a["href"])
+        except:
+            result.append("404 Not Found")
         return result
     
     def bakacan(self):
-        cnx=requests.get(self.url["bakacan"],params=self.query["bakacan"])
-        soup=BeautifulSoup(cnx.text, "html.parser")
-        div=soup.find(class_="vinsmokebody")
-        link=div.find_all("h2")
         result=[]
-        for h2 in link:
-            result.append(h2.a["href"])
+        try:
+            cnx=requests.get(self.url["bakacan"],params=self.query["bakacan"])
+            soup=BeautifulSoup(cnx.text, "lxml")
+            div=soup.find(class_="vinsmokebody")
+            link=div.find_all("h2")
+            for h2 in link:
+                result.append(h2.a["href"])
+        except:
+            result.append("404 Not Found")
         return result
     
     def meownime(self):
-        cnx=requests.get(self.url["meownime"],params=self.query["meownime"])
-        soup=BeautifulSoup(cnx.text, "html.parser")
-        div=soup.find(class_="site-main")
-        link=div.find_all(class_="entry-title")
         result=[]
-        for h2 in link:
-            result.append(h2.a["href"])
+        try:
+            cnx=requests.get(self.url["meownime"],params=self.query["meownime"])
+            soup=BeautifulSoup(cnx.text, "lxml")
+            div=soup.find(class_="site-main")
+            link=div.find_all(class_="entry-title")
+            for h2 in link:
+                result.append(h2.a["href"])
+        except:
+            result.append("404 Not Found")
         return result
 
 def command(argv=None):
