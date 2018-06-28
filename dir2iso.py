@@ -1,4 +1,5 @@
-import os
+import subprocess
+import shlex
 import argparse
 import sys
 def command(argv=None):
@@ -15,8 +16,9 @@ def convert(label,hasil,folder):
     # genisoimage -f -J -joliet-long -r -allow-lowercase -allow-multidot -iso-level 3 -volid "directory" -sysid LINUX -volset-size 1 -volset-seqno 1 -o "result.iso" "directory"'
     "fungsi untuk membuat file iso dari folder"
     query='genisoimage -f -J -joliet-long -r -allow-lowercase -allow-multidot -iso-level 3 -volid "{0}" -sysid LINUX -volset-size 1 -volset-seqno 1 -no-cache-inodes -full-iso9660-filenames -o "{1}" "{2}"'.format(label,hasil,folder)
-    result = os.system(query)
-    return result
+    cmd = shlex.split(shlex.quote(query))
+    execution = subprocess.Popen(cmd, shell=True).communicate()
+    return execution
 
 if __name__ == "__main__":
     folder,label,hasil=command(sys.argv[1:])

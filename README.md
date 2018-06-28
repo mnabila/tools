@@ -19,4 +19,6 @@
     + BeautifulSoup4 (*pip3 install BeautifulSoup4*)
     + argparse (*pip3 install argparse*)
     + colorama (*pip3 install colorama*)   
+    + flask (*pip3 install flask*)
+    + lxml (*pip3 install lxml*)
 ##### bahasa ingrisnya ancur coeg wkwkwk
