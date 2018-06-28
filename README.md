@@ -12,13 +12,14 @@
     **required package:**
     + argparse (*pip3 install argparse*)
     + ffmpeg (*sudo apt-get install ffmpeg*)
-+ [aniGrab.py](https://github.com/nabil48/tools/blob/master/aniGrab.py)  
++ [aniGrab.py](https://github.com/nabil48/tools/tree/master/anigrab)  
     grabing data from website  
     **required package:**
     + requests (*pip3 install requests*)
     + BeautifulSoup4 (*pip3 install BeautifulSoup4*)
     + argparse (*pip3 install argparse*)
-    + colorama (*pip3 install colorama*)   
+    + colorama (*pip3 install colorama*)
     + flask (*pip3 install flask*)
     + lxml (*pip3 install lxml*)
+    + flask_wtf(*pip3 install flask_wtf*)
 ##### bahasa ingrisnya ancur coeg wkwkwk
