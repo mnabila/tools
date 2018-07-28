@@ -104,7 +104,11 @@
                                         <td>
                                             <ul class="list-link">
                                             {%for link in data["data"][site]%}
-                                                <li><a href='{{link["link"]}}' target="blank">{{link["title"]}}</a></li>
+                                                {% if "link" in link %}
+                                                    <li><a href='{{link["link"]}}' target="blank">{{link["title"]}}</a></li>
+                                                {%else%}
+                                                    <li><a href='#'>{{link["error"]}}</a></li>
+                                                {%endif%}
                                             {%endfor%}
                                             </ul>
                                         </td>

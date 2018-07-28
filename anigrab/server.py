@@ -31,6 +31,8 @@ def getData(website,keyword):
         result["awbatch"]=anime.awbatch()
     elif website == "zonawibu":
         result["zonawibu"]=anime.zonawibu()
+    elif website == "meowbatch":
+        result["meowbatch"]=anime.meowbatch()
     else:
         result["animesave"]=anime.animesave()
         time.sleep(0.1)
@@ -49,6 +51,8 @@ def getData(website,keyword):
         result["awbatch"]=anime.awbatch()
         time.sleep(0.1)
         result["zonawibu"]=anime.zonawibu()
+        time.sleep(0.1)
+        result["meowbatch"]=anime.meowbatch()
     return result
 
 @app.route("/", methods=["POST","GET"])
@@ -64,10 +68,25 @@ def vIndex():
             waktu=time.strftime("%d-%m-%Y %H:%M:%S",time.localtime())
             for site in data:
                 for b in data[site]:
-                    if b["title"] == "404 Not Found":
-                        print("{bRed}[{website}][{time}] {log}{bReset}".format(website=site,time=waktu,log=b["title"],bRed=Back.RED,bReset=Back.RESET))
+                    if "error" in b :
+                        print("{bRed}[{website}][{time}] {log}{bReset}".format(
+                            website=site,
+                            time=waktu,
+                            log=b["error"],
+                            bRed=Back.RED,
+                            bReset=Back.RESET
+                            )
+                        )
                     else:
-                        print("{fYellow}[{website}]{fReset}{fGreen}[{time}]{fReset} {log}".format(website=site,time=waktu,log=b["title"],fGreen=Fore.GREEN,fYellow=Fore.YELLOW,fReset=Fore.RESET))
+                        print("{fYellow}[{website}]{fReset}{fGreen}[{time}]{fReset} {log}".format(
+                            website=site,
+                            time=waktu,
+                            log=b["title"],
+                            fGreen=Fore.GREEN,
+                            fYellow=Fore.YELLOW,
+                            fReset=Fore.RESET
+                            )
+                        )
             return render_template("index.html",data={"form":form,"data":data})
         else:
             return render_template("index.html",data={"form":form})

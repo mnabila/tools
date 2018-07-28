@@ -13,7 +13,8 @@ class aniForm(FlaskForm):
         ("wibudesu","wibudesu"),
         ("kusonime","kusonime"),
         ("awbatch","awbatch"),
-        ("zonawibu","zonawibu")
+        ("zonawibu","zonawibu"),
+        ("meowbatch","meowbatch")
     ]
     listSite=SelectField(label="daftar website",choices=option)
     btnCari=SubmitField(label="search")
