@@ -5,7 +5,7 @@ import subprocess
 
 try:
     from mutagen.easyid3 import EasyID3
-except ImportError and ModuleNotFoundError:
+except ImportError:
     subprocess.Popen(["pip3", "install", "mutagen", "--user"]).communicate()
 
 
@@ -26,11 +26,10 @@ def editor(**kwargs):
     audio = EasyID3(filename=kwargs["file_path"])
     for keys, value in kwargs.items():
         if keys != "file_path":
-            audio[keys] = value
-    if audio.save():
-        print("success")
-    else:
-        print("error")
+            if value is not None:
+                audio[keys] = value
+                audio.save()
+
 
 
 def commandPromt(args=None):
@@ -38,11 +37,11 @@ def commandPromt(args=None):
         description=" program untuk mengubah meta data pada music yang berformat mp3")
     parse.add_argument("-f", "--file_path", help="music files")
     parse.add_argument("-t", "--title", help="title")
-    parse.add_argument("--artist", help="artist")
-    parse.add_argument("--albumartist", help="album artist")
-    parse.add_argument("--album", help="album")
+    parse.add_argument("-ar","--artist", help="artist")
+    parse.add_argument("-aa","--albumartist", help="album artist")
+    parse.add_argument("-al","--album", help="album")
     parse.add_argument("-d", "--date", help="date")
-    parse.add_argument("--tracknumber", help="track number")
+    parse.add_argument("-tn","--tracknumber", help="track number")
     parse.add_argument("-g", "--genre", help="genre")
     parse.add_argument("-c", "--composer", help="composer")
     parse.add_argument("-p", "--performer", help="performer")
@@ -71,8 +70,7 @@ author    : https://github.com/nabil48
             genre=data.genre,
             composer=data.composer,
             performer=data.performer,
-            bpm=data.bpm,
-            lyricist=data.lyricist
+            bpm=data.bpm
         )
 
 
