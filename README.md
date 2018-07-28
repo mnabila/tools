@@ -22,4 +22,8 @@
     + flask (*pip3 install flask*)
     + lxml (*pip3 install lxml*)
     + flask_wtf(*pip3 install flask_wtf*)
++  [mp3ditor.py](https://github.com/nabil48/tools/blob/master/mp3ditor.py)   
+    mp3 meta tag editor cli version
+    **required package:**
+    + mutagen(*pip3 install mutagen*)
 ##### bahasa ingrisnya ancur coeg wkwkwk
