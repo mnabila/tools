@@ -32,22 +32,22 @@ def editor(**kwargs):
                 audio.save()
 
 
-
 def commandPromt(args=None):
     parse = argparse.ArgumentParser(
         description=" program untuk mengubah meta data pada music yang berformat mp3")
     parse.add_argument("-f", "--file_path", help="music files")
     parse.add_argument("-t", "--title", help="title")
-    parse.add_argument("-ar","--artist", help="artist")
-    parse.add_argument("-aa","--albumartist", help="album artist")
-    parse.add_argument("-al","--album", help="album")
+    parse.add_argument("-ar", "--artist", help="artist")
+    parse.add_argument("-aa", "--albumartist", help="album artist")
+    parse.add_argument("-al", "--album", help="album")
     parse.add_argument("-d", "--date", help="date")
-    parse.add_argument("-tn","--tracknumber", help="track number")
+    parse.add_argument("-tn", "--tracknumber", help="track number")
     parse.add_argument("-g", "--genre", help="genre")
     parse.add_argument("-c", "--composer", help="composer")
     parse.add_argument("-p", "--performer", help="performer")
     parse.add_argument("-b", "--bpm", help="bpm")
-    parse.add_argument("-v", "--version", help="print version about this programs", action="store_true")
+    parse.add_argument("-v", "--version",
+                       help="print version about this programs", action="store_true")
     return parse.parse_args(args)
 
 
