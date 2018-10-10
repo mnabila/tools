@@ -5,11 +5,9 @@ gogh
 *.map
 *.pyc
 #ignore folder
-anigrab/__pycache__/*
 teleclone
 twitbot
 telechat
 teclone.py
 multigram.py
 autovisit.py
-.vscode
