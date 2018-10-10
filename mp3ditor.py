@@ -6,6 +6,7 @@ import subprocess
 try:
     from mutagen.easyid3 import EasyID3
 except ImportError:
+    print("installing mutagen")
     subprocess.Popen(["pip3", "install", "mutagen", "--user"]).communicate()
 
 
